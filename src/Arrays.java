@@ -1,12 +1,14 @@
 public class Arrays {
 
 
+
     public static void main(String[] args) {
 
         int arr[] = {2,4,5,1,2};
         System.out.println(checkSorted(arr));
     }
 
+    //program to check if an array was initially sorted and thne rotated for some value x ,x can be 0 as well
     //check pairwise if any pair i greater increase the count.
     static boolean checkSorted(int[] nums) {
 
