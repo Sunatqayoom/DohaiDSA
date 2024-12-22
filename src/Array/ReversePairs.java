@@ -11,7 +11,7 @@ public class ReversePairs {
     //**0 <= i < j < nums.length and
     //**nums[i] > 2 * nums[j].
  //Brute force
-    //Time limited exceeded in htis case
+    //Time limited exceeded in this case
     public int reversePairs(int[] nums) {
         int n = nums.length;
         int count = 0;
