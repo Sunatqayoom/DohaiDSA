@@ -15,6 +15,7 @@ public class FruitsBasket {
 
         // Iterate over all possible starting points of subarrays
         for (int i = 0; i < n; i++) {
+            //because by using set we can include duplicate values in a single term as set does not include duplicate values..size of the set will not increae  by duplicate values
             HashSet<Integer> basket = new HashSet<>();
             int count = 0;
 
