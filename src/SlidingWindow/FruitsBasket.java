@@ -1,5 +1,6 @@
 package SlidingWindow;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class FruitsBasket {
@@ -31,6 +32,35 @@ public class FruitsBasket {
 
             // Update the maximum number of fruits collected
             maxFruits = Math.max(maxFruits, count);
+        }
+
+        return maxFruits;
+    }
+
+    // Sliding window approach: O(n) time complexity
+    public static int maxFruits(int[] fruits) {
+        int n = fruits.length;
+        HashMap<Integer, Integer> basket = new HashMap<>();
+        int start = 0, maxFruits = 0;
+
+        for (int end = 0; end < n; end++) {
+            // Add the current fruit to the basket
+            basket.put(fruits[end], basket.getOrDefault(fruits[end], 0) + 1);
+
+            // If there are more than 2 distinct fruit types, shrink the window
+            while (basket.size() > 2) {
+                basket.put(fruits[start], basket.get(fruits[start]) - 1);
+
+                // Remove fruit type from the basket if its count becomes 0
+                if (basket.get(fruits[start]) == 0) {
+                    basket.remove(fruits[start]);
+                }
+
+                start++; // Shrink the window from the left
+            }
+
+            // Update the maximum length of a valid window
+            maxFruits = Math.max(maxFruits, end - start + 1);
         }
 
         return maxFruits;
